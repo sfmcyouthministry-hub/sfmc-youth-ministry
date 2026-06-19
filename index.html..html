@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SFMC Youth Ministry — Move Wantem Faith</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #6B0E23;
+    --maroon-dark: #4a0918;
+    --maroon-light: #8a1530;
+    --gold: #C9963A;
+    --gold-light: #e0b45a;
+    --gold-pale: #f5e8cc;
+    --cream: #fdf8f0;
+    --white: #ffffff;
+    --charcoal: #1a1a1a;
+    --grey: #5a5a5a;
+    --grey-light: #e8e4df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--maroon-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--maroon);
+    color: var(--white);
+    padding: 80px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,150,58,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-verse {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 560px;
+    margin: 0 auto 10px;
+  }
+  .hero-ref {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+  .hero-slogan {
+    margin-top: 36px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+  .section-header {
+    margin-bottom: 48px;
+  }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--maroon);
+    line-height: 1.2;
+  }
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--gold);
+    margin-top: 16px;
+  }
+
+  /* ── ABOUT / STATS ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1rem;
+    color: var(--grey);
+    margin-bottom: 18px;
+    line-height: 1.75;
+  }
+  .about-text .closing-verse {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--maroon);
+    border-left: 3px solid var(--gold);
+    padding: 12px 18px;
+    margin-top: 28px;
+    background: var(--gold-pale);
+    border-radius: 0 4px 4px 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-top: 3px solid var(--maroon);
+    padding: 20px;
+    border-radius: 4px;
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--maroon);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--grey);
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ── FOUR SQUARE ── */
+  .foursquare-bg {
+    background: var(--maroon);
+    color: var(--white);
+  }
+  .foursquare-bg .section-title { color: var(--white); }
+  .foursquare-bg .section-label { color: var(--gold-light); }
+  .four-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .four-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,150,58,0.35);
+    border-top: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 28px 20px;
+  }
+  .four-card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  .four-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .four-card-leaders {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .four-card-count {
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: var(--white);
+  }
+  .four-card-count span {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  /* ── EXECUTIVES ── */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .exec-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-radius: 4px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .exec-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--maroon), var(--gold));
+  }
+  .exec-initial {
+    width: 52px;
+    height: 52px;
+    background: var(--maroon);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .exec-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .exec-role {
+    font-size: 0.78rem;
+    color: var(--maroon);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── PROGRAMME / CALENDAR ── */
+  .phase-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .phase-tab {
+    padding: 8px 18px;
+    border: 1.5px solid var(--grey-light);
+    background: transparent;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--grey);
+    font-family: 'Inter', sans-serif;
+  }
+  .phase-tab:hover, .phase-tab.active {
+    background: var(--maroon);
+    border-color: var(--maroon);
+    color: var(--white);
+  }
+  .phase-tab.gold-tab.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+
+  .month-block { margin-bottom: 48px; display: none; }
+  .month-block.visible { display: block; }
+
+  .month-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+  .month-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--maroon);
+  }
+  .month-theme {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .month-verse {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--grey);
+    margin-bottom: 16px;
+  }
+
+  .session-list { display: flex; flex-direction: column; gap: 8px; }
+  .session-row {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-radius: 4px;
+    padding: 14px 18px;
+    transition: border-color 0.2s;
+  }
+  .session-row:hover { border-color: var(--gold); }
+  .session-row.special {
+    border-left: 3px solid var(--gold);
+    background: var(--gold-pale);
+  }
+  .session-date {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--grey);
+  }
+  .session-focus {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+  }
+  .session-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .badge-exec { background: var(--maroon); color: var(--white); }
+  .badge-speaker { background: var(--gold); color: var(--white); }
+  .badge-devotion { background: #5b4b8a; color: var(--white); }
+  .badge-education { background: #1a6b3a; color: var(--white); }
+  .badge-recreation { background: #1a5480; color: var(--white); }
+  .badge-service { background: #7a4010; color: var(--white); }
+  .badge-special { background: var(--maroon-dark); color: var(--gold); border: 1px solid var(--gold); }
+
+  .circuit-note {
+    font-size: 0.78rem;
+    color: var(--maroon);
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 8px 14px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .session-main { font-size: 0.9rem; color: var(--charcoal); }
+  .session-facilitator {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 3px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── PHASE OVERVIEW ── */
+  .phase-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .phase-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-radius: 4px;
+    padding: 20px;
+    border-left: 4px solid var(--maroon);
+  }
+  .phase-number {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .phase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--maroon);
+    margin-bottom: 8px;
+  }
+  .phase-months {
+    font-size: 0.78rem;
+    color: var(--grey);
+  }
+
+  /* ── HIGHLIGHTS ── */
+  .highlights-bg { background: #f5f0ea; }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .highlight-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 28px 24px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .highlight-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .highlight-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--maroon);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .highlight-text { font-size: 0.88rem; color: var(--grey); line-height: 1.65; }
+
+  /* ── MEMBERS TABLE ── */
+  .members-section { overflow-x: auto; }
+  .members-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .members-table th {
+    background: var(--maroon);
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .members-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--grey-light);
+    color: var(--charcoal);
+  }
+  .members-table tr:nth-child(even) td { background: rgba(201,150,58,0.06); }
+  .members-table tr:hover td { background: var(--gold-pale); }
+  .group-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  .dot-devotion { background: #5b4b8a; }
+  .dot-education { background: #1a6b3a; }
+  .dot-recreation { background: #1a5480; }
+  .dot-service { background: #7a4010; }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .filter-btn {
+    padding: 6px 16px;
+    border: 1.5px solid var(--grey-light);
+    background: transparent;
+    border-radius: 16px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    color: var(--grey);
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active { color: var(--white); border-color: transparent; }
+  .filter-btn.f-all.active { background: var(--maroon); }
+  .filter-btn.f-devotion.active { background: #5b4b8a; }
+  .filter-btn.f-education.active { background: #1a6b3a; }
+  .filter-btn.f-recreation.active { background: #1a5480; }
+  .filter-btn.f-service.active { background: #7a4010; }
+
+  /* ── CONNECT ── */
+  .connect-bg {
+    background: var(--maroon-dark);
+    color: var(--white);
+    text-align: center;
+  }
+  .connect-bg .section-title { color: var(--white); }
+  .connect-bg .section-label { color: var(--gold-light); }
+  .connect-bg .divider { background: var(--gold); margin: 16px auto 40px; }
+  .connect-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .connect-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,150,58,0.3);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .connect-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .connect-card-value {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .connect-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--maroon-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .connect-btn:hover { background: var(--gold-light); }
+
+  /* ── ANNOUNCEMENTS ── */
+  .announcements-bg { background: var(--cream); }
+  .announcements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .announcement-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .announcement-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 16px rgba(107,14,35,0.08);
+  }
+  .announcement-card-top {
+    background: var(--maroon);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .announcement-date-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .announcement-type-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(201,150,58,0.18);
+    color: var(--gold-light);
+    padding: 2px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(201,150,58,0.35);
+  }
+  .announcement-body { padding: 18px; }
+  .announcement-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--maroon);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .announcement-desc {
+    font-size: 0.85rem;
+    color: var(--grey);
+    line-height: 1.65;
+  }
+  .announcement-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 56px 24px;
+    background: var(--white);
+    border: 2px dashed var(--grey-light);
+    border-radius: 4px;
+  }
+  .announcement-empty-icon { font-size: 2rem; margin-bottom: 12px; opacity: 0.4; }
+  .announcement-empty-text {
+    font-size: 0.88rem;
+    color: var(--grey);
+  }
+  .announcement-empty-text strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--maroon);
+    margin-bottom: 6px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  footer span { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .four-grid { grid-template-columns: 1fr 1fr; }
+    .exec-grid { grid-template-columns: 1fr 1fr; }
+    .phase-overview { grid-template-columns: 1fr 1fr; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .announcements-grid { grid-template-columns: 1fr; }
+    .connect-cards { grid-template-columns: 1fr; }
+    .session-row { grid-template-columns: 80px 1fr; }
+    .session-badge { display: none; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">SFMC Youth Ministry</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#leaders">Leaders</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#members">Members</a></li>
+      <li><a href="#announcements">Announcements</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Sister Fairhall Memorial United Church · Port Moresby, PNG</div>
+  <h1>From <span>Listening</span><br>to <span>Leading</span></h1>
+  <p class="hero-verse">"But don't just listen to God's word. You must do what it says."</p>
+  <p class="hero-ref">James 1:22</p>
+  <p class="hero-slogan">Move Wantem — Faith · 2026</p>
+</section>
+
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">A Ministry Rooted in Faith,<br>Built for the Next Generation</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>The SFMC Youth Ministry exists to involve and engage young people who attend Sister Fairhall Memorial United Church. We are the upcoming generation — the future leaders of this church — called to carry on what has been built before us.</p>
+        <p>We help young people connect with their spirituality, deepen their understanding of God's word, and establish a strong foundation for a lifelong faith journey. We encourage active participation in the life of the church, fostering a sense of belonging and commitment among our youth.</p>
+        <p>Our 2026 programme, <em>From Listening to Leading</em>, takes us through four phases of growth — from learning to hear God's voice, to walking by faith, to building character, to leading with influence.</p>
+        <div class="closing-verse">
+          "Whatever you do, do it from the heart for the Lord and not for people. You know that you will receive an inheritance as a reward. You serve the Lord Christ."
+          <br><strong>— Colossians 3:23–24</strong>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">49</div>
+          <div class="stat-label">Registered Members</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Married Couples</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Four Square Groups</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">34</div>
+          <div class="stat-label">Sessions in 2026</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Youth Executives</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Group Leaders</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR SQUARE GROUPS -->
+<section id="groups" class="foursquare-bg">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Four Square Model</div>
+      <h2 class="section-title">Our Groups</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="four-grid">
+      <div class="four-card">
+        <div class="four-card-icon">🙏</div>
+        <div class="four-card-name">Devotion</div>
+        <div class="four-card-leaders">Leaders: Berry Orai &amp; Emma Babuda</div>
+        <div class="four-card-count">13<span>Members</span></div>
+      </div>
+      <div class="four-card">
+        <div class="four-card-icon">📖</div>
+        <div class="four-card-name">Education</div>
+        <div class="four-card-leaders">Leaders: Veari Lama Jnr &amp; Haga Gere</div>
+        <div class="four-card-count">11<span>Members</span></div>
+      </div>
+      <div class="four-card">
+        <div class="four-card-icon">⚽</div>
+        <div class="four-card-name">Recreation</div>
+        <div class="four-card-leaders">Leaders: Malvin Kokoa &amp; Clovish Renagi</div>
+        <div class="four-card-count">14<span>Members</span></div>
+      </div>
+      <div class="four-card">
+        <div class="four-card-icon">🤝</div>
+        <div class="four-card-name">Service</div>
+        <div class="four-card-leaders">Leaders: Anntonique Boboro &amp; Vavine Pala Jnr</div>
+        <div class="four-card-count">11<span>Members</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVES -->
+<section id="leaders">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Youth Executives</div>
+      <h2 class="section-title">Leadership Team</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="exec-initial">VP</div>
+        <div class="exec-name">Vakilvin Pala</div>
+        <div class="exec-role">Chairman</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-initial">VJ</div>
+        <div class="exec-name">Valahu Jangumai</div>
+        <div class="exec-role">Vice Chairman</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-initial">TA</div>
+        <div class="exec-name">Telita Alu</div>
+        <div class="exec-role">Secretary</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-initial">WN</div>
+        <div class="exec-name">Wailyn Navu</div>
+        <div class="exec-role">Vice Secretary</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-initial">YK</div>
+        <div class="exec-name">Yosikalu Kelola</div>
+        <div class="exec-role">Treasurer</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-initial">PG</div>
+        <div class="exec-name">Peggy Geno</div>
+        <div class="exec-role">Vice Treasurer</div>
+      </div>
+    </div>
+    <div style="margin-top: 28px; padding: 16px 20px; background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; font-size: 0.88rem; color: var(--grey);">
+      <strong style="color: var(--maroon);">Pastoral Leadership:</strong> Rev. Hauere Idau — Congregation Minister, Sister Fairhall Memorial United Church
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section id="programme" style="background: #f5f0ea;">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">2026 Annual Programme</div>
+      <h2 class="section-title">Weekly Friday Night Schedule</h2>
+      <div class="divider"></div>
+      <p style="margin-top: 14px; font-size: 0.88rem; color: var(--grey);">Every Friday · 6:00 PM – 9:00 PM · 34 Sessions · April through November 2026</p>
+    </div>
+
+    <!-- Phase overview -->
+    <div class="phase-overview" style="margin-bottom: 40px;">
+      <div class="phase-card">
+        <div class="phase-number">Phase 01</div>
+        <div class="phase-title">Listening Hearts</div>
+        <div class="phase-months">April 2026</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-number">Phase 02</div>
+        <div class="phase-title">Walking in Faith</div>
+        <div class="phase-months">May – June 2026</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-number">Phase 03</div>
+        <div class="phase-title">Growing in Character</div>
+        <div class="phase-months">July – September 2026</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-number">Phase 04</div>
+        <div class="phase-title">Leading with Influence</div>
+        <div class="phase-months">October – November 2026</div>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="phase-tabs">
+      <button class="phase-tab active" onclick="filterMonth('all', this)">All Months</button>
+      <button class="phase-tab" onclick="filterMonth('april', this)">April</button>
+      <button class="phase-tab" onclick="filterMonth('may', this)">May</button>
+      <button class="phase-tab" onclick="filterMonth('june', this)">June</button>
+      <button class="phase-tab" onclick="filterMonth('july', this)">July</button>
+      <button class="phase-tab" onclick="filterMonth('august', this)">August</button>
+      <button class="phase-tab" onclick="filterMonth('september', this)">September</button>
+      <button class="phase-tab" onclick="filterMonth('october', this)">October</button>
+      <button class="phase-tab" onclick="filterMonth('november', this)">November</button>
+    </div>
+
+    <!-- APRIL -->
+    <div class="month-block visible" data-month="april">
+      <div class="month-header">
+        <div class="month-name">April 2026</div>
+        <div class="month-theme">Listening in Prayer</div>
+      </div>
+      <div class="month-verse">John 10:27 · Prayer Stations · Silent Worship Night</div>
+      <div class="circuit-note">📌 20–24 Apr — Sunday School &amp; CRE Teachers Training @ BUC</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">24 Apr</div>
+          <div class="session-focus">
+            <div class="session-main">Launching of Calendar &amp; Program · Grouping into 4 Square Groups</div>
+            <div class="session-facilitator">Vakilvin Pala</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAY -->
+    <div class="month-block visible" data-month="may">
+      <div class="month-header">
+        <div class="month-name">May 2026</div>
+        <div class="month-theme">Faith as a Mustard Seed</div>
+      </div>
+      <div class="month-verse">Matthew 17:20 · Mustard Seed Lesson · Testimony Night</div>
+      <div class="circuit-note">📌 25–29 May — ACYM 14th Conference &amp; Youth Leaders Training &nbsp;|&nbsp; 30 May — NPMC Major Fundraising Corporate Dinner @ APEC Haus</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">01 May</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Faith as a Mustard Seed' — Matthew 17:20</div>
+            <div class="session-facilitator">Yosikalu Kelola</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row special">
+          <div class="session-date">08 May</div>
+          <div class="session-focus">
+            <div class="session-main"><strong>Observe Mother's Day</strong></div>
+            <div class="session-facilitator">Wailyn Navu</div>
+          </div>
+          <div class="session-badge badge-special">Special</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">15 May</div>
+          <div class="session-focus">
+            <div class="session-main">Education Group presents on: 'Faith as a Mustard Seed'</div>
+            <div class="session-facilitator">Telita Alu</div>
+          </div>
+          <div class="session-badge badge-education">Education</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">22 May</div>
+          <div class="session-focus">
+            <div class="session-main">Devotion Group presents on: 'Faith as a Mustard Seed'</div>
+            <div class="session-facilitator">Peggy Geno</div>
+          </div>
+          <div class="session-badge badge-devotion">Devotion</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">29 May</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Faith as a Mustard Seed' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUNE -->
+    <div class="month-block visible" data-month="june">
+      <div class="month-header">
+        <div class="month-name">June 2026</div>
+        <div class="month-theme">Obedience in Daily Life</div>
+      </div>
+      <div class="month-verse">Luke 16:10 · Obedience Challenge · Community Service Project</div>
+      <div class="circuit-note">📌 6 Jun — Gospel Concert (1st Fundraising) &nbsp;|&nbsp; 17 Jun — Excursion / Fun Day / Field Trip &nbsp;|&nbsp; 21–26 Jun — URCYM 22nd Regional Youth Convention @ Morobe Circuit &nbsp;|&nbsp; 27 Jun — 2nd Combined Fellowship (Zoning Teams)</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">05 Jun</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Obedience in Daily Life' — Luke 16:10</div>
+            <div class="session-facilitator">Executives</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">12 Jun</div>
+          <div class="session-focus">
+            <div class="session-main">Service Group presents on: 'Obedience in Daily Life'</div>
+            <div class="session-facilitator">Service Group</div>
+          </div>
+          <div class="session-badge badge-service">Service</div>
+        </div>
+        <div class="session-row" style="border-left: 3px solid var(--gold); background: var(--gold-pale);">
+          <div class="session-date">19 Jun</div>
+          <div class="session-focus">
+            <div class="session-main">Recreation Group presents on: 'Obedience in Daily Life' <em style="color: var(--gold); font-size:0.75rem; margin-left: 6px;">— This Friday</em></div>
+            <div class="session-facilitator">Recreation Group</div>
+          </div>
+          <div class="session-badge badge-recreation">Recreation</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">26 Jun</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Obedience in Daily Life' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JULY -->
+    <div class="month-block" data-month="july">
+      <div class="month-header">
+        <div class="month-name">July 2026</div>
+        <div class="month-theme">Humility in Leadership</div>
+      </div>
+      <div class="month-verse">Matthew 20:26 · Youth Serve Leaders Night · Role-Play · General Meeting</div>
+      <div class="circuit-note">📌 11 Jul — URCYM Combined Fellowship, Host: EPMC &nbsp;|&nbsp; 18 Jul — Blood Donation &nbsp;|&nbsp; 23 Jul — National Remembrance Day</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">03 Jul</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Humility in Leadership' — Matthew 20:26</div>
+            <div class="session-facilitator">Executives</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">10 Jul</div>
+          <div class="session-focus">
+            <div class="session-main">Education Group presents on: 'Humility in Leadership'</div>
+            <div class="session-facilitator">Education Group</div>
+          </div>
+          <div class="session-badge badge-education">Education</div>
+        </div>
+        <div class="session-row special">
+          <div class="session-date">17 Jul</div>
+          <div class="session-focus">
+            <div class="session-main"><strong>Youth Night — General Meeting</strong> · All youth &amp; leaders · Reports · Elections · Planning</div>
+          </div>
+          <div class="session-badge badge-special">Special</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">24 Jul</div>
+          <div class="session-focus">
+            <div class="session-main">Devotion Group presents on: 'Humility in Leadership'</div>
+            <div class="session-facilitator">Devotion Group</div>
+          </div>
+          <div class="session-badge badge-devotion">Devotion</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">31 Jul</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Humility in Leadership' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUGUST -->
+    <div class="month-block" data-month="august">
+      <div class="month-header">
+        <div class="month-name">August 2026</div>
+        <div class="month-theme">Courage and Integrity</div>
+      </div>
+      <div class="month-verse">Joshua 1:9 · Peer Pressure Skits · Courage Wall</div>
+      <div class="circuit-note">📌 7–14 Aug — 58th Regional SYNOD &nbsp;|&nbsp; Coordinator's Visit to SFMC &nbsp;|&nbsp; 16–23 Aug — CYM Week of Prayer &amp; Fasting</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">07 Aug</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Courage and Integrity' — Joshua 1:9</div>
+            <div class="session-facilitator">Executives</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">14 Aug</div>
+          <div class="session-focus">
+            <div class="session-main">Service Group presents on: 'Courage and Integrity'</div>
+            <div class="session-facilitator">Service Group</div>
+          </div>
+          <div class="session-badge badge-service">Service</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">21 Aug</div>
+          <div class="session-focus">
+            <div class="session-main">Recreation Group presents on: 'Courage and Integrity'</div>
+            <div class="session-facilitator">Recreation Group</div>
+          </div>
+          <div class="session-badge badge-recreation">Recreation</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">28 Aug</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Courage and Integrity' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEPTEMBER -->
+    <div class="month-block" data-month="september">
+      <div class="month-header">
+        <div class="month-name">September 2026</div>
+        <div class="month-theme">Setting an Example</div>
+      </div>
+      <div class="month-verse">1 Timothy 4:12 · Youth-Led Devotionals · Live It Challenge</div>
+      <div class="circuit-note">📌 12 Sep — 3rd Combined Fellowship (Zoning Teams)</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">04 Sep</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Setting an Example' — 1 Timothy 4:12</div>
+            <div class="session-facilitator">Executives</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row special">
+          <div class="session-date">11 Sep</div>
+          <div class="session-focus">
+            <div class="session-main"><strong>Father's Day Preparation</strong> — Education Group leads</div>
+            <div class="session-facilitator">Education Group</div>
+          </div>
+          <div class="session-badge badge-education">Education</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">18 Sep</div>
+          <div class="session-focus">
+            <div class="session-main">Devotion Group presents on: 'Setting an Example'</div>
+            <div class="session-facilitator">Devotion Group</div>
+          </div>
+          <div class="session-badge badge-devotion">Devotion</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">25 Sep</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Setting an Example' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OCTOBER -->
+    <div class="month-block" data-month="october">
+      <div class="month-header">
+        <div class="month-name">October 2026</div>
+        <div class="month-theme">Leading by Serving</div>
+      </div>
+      <div class="month-verse">Mark 10:45 · Outreach Event · Secret Servant · Servant Leader Awards</div>
+      <div class="circuit-note">📌 3 Oct — CYM Thanksgiving Rally @ Gereka UC (2nd Fundraising)</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">02 Oct</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Leading by Serving' — Mark 10:45</div>
+            <div class="session-facilitator">Executives</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">09 Oct</div>
+          <div class="session-focus">
+            <div class="session-main">Service Group presents on: 'Leading by Serving'</div>
+            <div class="session-facilitator">Service Group</div>
+          </div>
+          <div class="session-badge badge-service">Service</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">16 Oct</div>
+          <div class="session-focus">
+            <div class="session-main">Recreation Group presents on: 'Leading by Serving'</div>
+            <div class="session-facilitator">Recreation Group</div>
+          </div>
+          <div class="session-badge badge-recreation">Recreation</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">23 Oct</div>
+          <div class="session-focus">
+            <div class="session-main">Education Group presents on: 'Leading by Serving'</div>
+            <div class="session-facilitator">Education Group</div>
+          </div>
+          <div class="session-badge badge-education">Education</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">30 Oct</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Leading by Serving' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOVEMBER -->
+    <div class="month-block" data-month="november">
+      <div class="month-header">
+        <div class="month-name">November 2026</div>
+        <div class="month-theme">Shining as Light</div>
+      </div>
+      <div class="month-verse">Matthew 5:14-16 · Commissioning Ceremony · Light-Themed Worship Night</div>
+      <div class="circuit-note">📌 14 Nov — Talent Show @ WUC &nbsp;|&nbsp; 21 Nov — LMS Night &nbsp;|&nbsp; 22 Nov — Children's Day Visitation (CYM Closing)</div>
+      <div class="session-list">
+        <div class="session-row">
+          <div class="session-date">06 Nov</div>
+          <div class="session-focus">
+            <div class="session-main">Break down theme: 'Shining as Light' — Matthew 5:14-16</div>
+            <div class="session-facilitator">Executives</div>
+          </div>
+          <div class="session-badge badge-exec">Executives</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">13 Nov</div>
+          <div class="session-focus">
+            <div class="session-main">Devotion Group presents on: 'Shining as Light'</div>
+            <div class="session-facilitator">Devotion Group</div>
+          </div>
+          <div class="session-badge badge-devotion">Devotion</div>
+        </div>
+        <div class="session-row special">
+          <div class="session-date">20 Nov</div>
+          <div class="session-focus">
+            <div class="session-main"><strong>Children's Day Observation</strong> — Service Group leads</div>
+            <div class="session-facilitator">Service Group</div>
+          </div>
+          <div class="session-badge badge-service">Service</div>
+        </div>
+        <div class="session-row">
+          <div class="session-date">27 Nov</div>
+          <div class="session-focus">
+            <div class="session-main">Speaker summarises 'Shining as Light' — Reflections &amp; Monthly Challenges</div>
+          </div>
+          <div class="session-badge badge-speaker">Speaker Night</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Q1 HIGHLIGHTS -->
+<section class="highlights-bg">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">First Quarter Review</div>
+      <h2 class="section-title">Programme Highlights — Q1 2026</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">🌟</div>
+        <div class="highlight-title">Fellowship Commencement</div>
+        <div class="highlight-text">Youth Fellowship officially commenced on 5 March 2026, with the ministry meeting every Friday night since. Strong, consistent attendance from youth and married couples alike across the entire quarter.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🌸</div>
+        <div class="highlight-title">Mother's Day Celebration</div>
+        <div class="highlight-text">Held on Saturday 7 May 2026 — the first-ever Saturday evening Mother's Day celebration for the ministry. A new and well-received milestone that the mothers thoroughly enjoyed.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🙌</div>
+        <div class="highlight-title">God's Faithfulness</div>
+        <div class="highlight-text">All glory and honour returned to God for His providence. We acknowledge the support of Rev. Hauere Idau, Marama Pauline Idau, and all parents and supporters who carried us through the quarter.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Membership Register</div>
+      <h2 class="section-title">49 Registered Members</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn f-all active" onclick="filterMembers('all', this)">All Groups</button>
+      <button class="filter-btn f-devotion" onclick="filterMembers('Devotion', this)"><span class="group-dot dot-devotion"></span>Devotion (13)</button>
+      <button class="filter-btn f-education" onclick="filterMembers('Education', this)"><span class="group-dot dot-education"></span>Education (11)</button>
+      <button class="filter-btn f-recreation" onclick="filterMembers('Recreation', this)"><span class="group-dot dot-recreation"></span>Recreation (14)</button>
+      <button class="filter-btn f-service" onclick="filterMembers('Service', this)"><span class="group-dot dot-service"></span>Service (11)</button>
+    </div>
+    <div class="members-section">
+      <table class="members-table" id="membersTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Group</th>
+          </tr>
+        </thead>
+        <tbody id="membersBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOUNCEMENTS -->
+<section id="announcements" class="announcements-bg">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">What's Coming Up</div>
+      <h2 class="section-title">Announcements</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="announcements-grid" id="announcementsGrid">
+
+      <!-- ── ADD ANNOUNCEMENTS BELOW THIS LINE ── -->
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">21–26 Jun 2026</div>
+          <div class="announcement-type-tag">Circuit</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">URCYM 22nd Regional Youth Convention</div>
+          <div class="announcement-desc">The United Church Regional Convention heads to Morobe Circuit. Watch out for further details from the Circuit Office on travel and participation.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">27 Jun 2026</div>
+          <div class="announcement-type-tag">Fellowship</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">2nd Combined Fellowship — Zoning Teams</div>
+          <div class="announcement-desc">Our second combined fellowship with zoning teams. All members are strongly encouraged to attend and represent SFMC Youth Ministry well.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">11 Jul 2026</div>
+          <div class="announcement-type-tag">Fellowship</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">URCYM Combined Fellowship</div>
+          <div class="announcement-desc">Combined fellowship hosted by Ela Phil Memorial Church (EPMC). All youth are welcome to join in fellowship and worship together.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">17 Jul 2026</div>
+          <div class="announcement-type-tag">Special</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">Youth Night — General Meeting</div>
+          <div class="announcement-desc">All youth and leaders must attend. Reports, elections, and planning will be on the agenda. Bring agenda items and group reports. <strong>Attendance is compulsory.</strong></div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">18 Jul 2026</div>
+          <div class="announcement-type-tag">Event</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">Blood Donation Drive</div>
+          <div class="announcement-desc">An opportunity to serve our community and save lives. More details on the venue and time will be shared closer to the date. Come prepared to give.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">7–14 Aug 2026</div>
+          <div class="announcement-type-tag">Circuit</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">58th Regional SYNOD</div>
+          <div class="announcement-desc">The 58th Regional SYNOD takes place this week, alongside a Coordinator's Visit to SFMC. Members are asked to be present and presentable during the visit.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">16–23 Aug 2026</div>
+          <div class="announcement-type-tag">Circuit</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">CYM Week of Prayer &amp; Fasting</div>
+          <div class="announcement-desc">A circuit-wide week of prayer and fasting. Youth are encouraged to participate fully — this is a season to draw close to God and seek His direction for the ministry.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">12 Sep 2026</div>
+          <div class="announcement-type-tag">Fellowship</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">3rd Combined Fellowship — Zoning Teams</div>
+          <div class="announcement-desc">Our third combined zoning fellowship for the year. Stay connected with your broader youth network and come ready to worship and share.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">3 Oct 2026</div>
+          <div class="announcement-type-tag">Fundraising</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">CYM Thanksgiving Rally — 2nd Fundraising</div>
+          <div class="announcement-desc">CYM Thanksgiving Rally at Gereka United Church — our second fundraising event of the year. All members are encouraged to participate and support the ministry's financial goals.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">14 Nov 2026</div>
+          <div class="announcement-type-tag">Event</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">Talent Show @ WUC</div>
+          <div class="announcement-desc">A talent show hosted at Waigani United Church. A great opportunity to showcase gifts and celebrate the creativity God has placed in our youth. More details to follow.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">21 Nov 2026</div>
+          <div class="announcement-type-tag">Event</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">LMS Night</div>
+          <div class="announcement-desc">London Missionary Society (LMS) Night — a special evening honouring the legacy of our church's founding mission. All members are warmly invited.</div>
+        </div>
+      </div>
+
+      <div class="announcement-card">
+        <div class="announcement-card-top">
+          <div class="announcement-date-badge">22 Nov 2026</div>
+          <div class="announcement-type-tag">Circuit</div>
+        </div>
+        <div class="announcement-body">
+          <div class="announcement-title">Children's Day Visitation — CYM Closing</div>
+          <div class="announcement-desc">The final circuit event of our 2026 programme year. We close out with a Children's Day visitation — a fitting reminder of who we serve and the legacy we are building.</div>
+        </div>
+      </div>
+
+      <!-- ── PASTE NEW ANNOUNCEMENT CARDS ABOVE THIS BOX ── -->
+      <div style="border: 2px dashed var(--grey-light); border-radius: 4px; padding: 32px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 160px;">
+        <div style="font-size: 2rem; margin-bottom: 10px; color: var(--grey-light);">＋</div>
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--maroon); margin-bottom: 6px; letter-spacing: 0.06em; text-transform: uppercase;">New Announcement</div>
+        <div style="font-size: 0.75rem; color: var(--grey); line-height: 1.6;">Paste a new card block above<br>this box to add an announcement.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect" class="connect-bg">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Get Involved</div>
+      <h2 class="section-title">Connect With Us</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="connect-cards">
+      <div class="connect-card">
+        <div class="connect-card-label">Location</div>
+        <div class="connect-card-value">Sister Fairhall Memorial United Church<br>Gordons / Erima, Port Moresby<br>National Capital District, PNG</div>
+      </div>
+      <div class="connect-card">
+        <div class="connect-card-label">When We Meet</div>
+        <div class="connect-card-value">Every Friday Night<br>6:00 PM – 9:00 PM<br>April – November 2026</div>
+      </div>
+      <div class="connect-card">
+        <div class="connect-card-label">Email Us</div>
+        <div class="connect-card-value"><a href="mailto:sfmcyouthministry@gmail.com" style="color: var(--gold-light); text-decoration: none;">sfmcyouthministry@gmail.com</a><br><br>P.O. Box 820, Gordons, NCD<br>Papua New Guinea</div>
+      </div>
+    </div>
+    <a class="connect-btn" href="mailto:sfmcyouthministry@gmail.com">Connect With Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>SFMC Youth Ministry</span> · Sister Fairhall Memorial United Church · Port Moresby, PNG</p>
+  <p style="margin-top: 6px;">Authorised by Rev. Hauere Idau · Vakilvin Pala, Youth Chairman · <span>Move Wantem — Faith</span></p>
+</footer>
+
+<script>
+// ── MEMBERS DATA ──
+const members = [
+  { name: "Vakilvin Pala", group: "Devotion" },
+  { name: "Emma Babuda", group: "Devotion" },
+  { name: "Zhyonne Koka", group: "Devotion" },
+  { name: "Sondo", group: "Devotion" },
+  { name: "Kari Murray", group: "Devotion" },
+  { name: "Pasi Joseph", group: "Devotion" },
+  { name: "Alice Kila", group: "Devotion" },
+  { name: "Kupana Kila", group: "Devotion" },
+  { name: "Elsie Lai", group: "Devotion" },
+  { name: "Thomas Lahari", group: "Devotion" },
+  { name: "Berry Orai", group: "Devotion" },
+  { name: "Ross Bouwe", group: "Devotion" },
+  { name: "Zechariah", group: "Devotion" },
+  { name: "Telita Alu", group: "Education" },
+  { name: "Nancy Inai", group: "Education" },
+  { name: "Stephen Vai", group: "Education" },
+  { name: "Lawrence Ken", group: "Education" },
+  { name: "Veari Lama Jnr", group: "Education" },
+  { name: "Haga Gere", group: "Education" },
+  { name: "Karo Wala", group: "Education" },
+  { name: "Bessie Kila", group: "Education" },
+  { name: "Marie Threse Babuda", group: "Education" },
+  { name: "Samantha Kose", group: "Education" },
+  { name: "Micheal", group: "Education" },
+  { name: "Valahu Jangumai", group: "Recreation" },
+  { name: "Heather Navu", group: "Recreation" },
+  { name: "Gelly Rose Pala", group: "Recreation" },
+  { name: "Silas Ora", group: "Recreation" },
+  { name: "Peggy Geno", group: "Recreation" },
+  { name: "Tony Naika", group: "Recreation" },
+  { name: "Hannah V Jangumai", group: "Recreation" },
+  { name: "Willie Gia", group: "Recreation" },
+  { name: "Clovish Renagi", group: "Recreation" },
+  { name: "Rupana Iamo", group: "Recreation" },
+  { name: "Gimana Idau", group: "Recreation" },
+  { name: "Malvin Kokoa Idau", group: "Recreation" },
+  { name: "Felisity Bobora", group: "Recreation" },
+  { name: "Gima", group: "Recreation" },
+  { name: "Yosikalu Kelola", group: "Service" },
+  { name: "Marie Veneo", group: "Service" },
+  { name: "Douglas Wala", group: "Service" },
+  { name: "Wailyn Navu", group: "Service" },
+  { name: "Vavine Pala Jnr", group: "Service" },
+  { name: "Mitchel Moide", group: "Service" },
+  { name: "Loiamoa Alu", group: "Service" },
+  { name: "Jimmy Kila", group: "Service" },
+  { name: "Rose Murray", group: "Service" },
+  { name: "Anntonique Bobora", group: "Service" },
+  { name: "Brandan Lahari", group: "Service" },
+];
+
+const groupColors = {
+  Devotion: { dot: 'dot-devotion', label: '#5b4b8a' },
+  Education: { dot: 'dot-education', label: '#1a6b3a' },
+  Recreation: { dot: 'dot-recreation', label: '#1a5480' },
+  Service: { dot: 'dot-service', label: '#7a4010' }
+};
+
+function renderMembers(filter) {
+  const tbody = document.getElementById('membersBody');
+  const filtered = filter === 'all' ? members : members.filter(m => m.group === filter);
+  tbody.innerHTML = filtered.map((m, i) => `
+    <tr data-group="${m.group}">
+      <td style="color: var(--grey); font-size: 0.8rem;">${i + 1}</td>
+      <td>${m.name}</td>
+      <td>
+        <span class="group-dot ${groupColors[m.group].dot}"></span>
+        <span style="font-size: 0.82rem; font-weight: 600; color: ${groupColors[m.group].label};">${m.group}</span>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function filterMembers(group, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMembers(group);
+}
+
+// ── CALENDAR FILTER ──
+function filterMonth(month, btn) {
+  document.querySelectorAll('.phase-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.month-block').forEach(block => {
+    if (month === 'all' || block.dataset.month === month) {
+      block.classList.add('visible');
+    } else {
+      block.classList.remove('visible');
+    }
+  });
+}
+
+// ── INIT ──
+renderMembers('all');
+</script>
+</body>
+</html>
